@@ -3,6 +3,8 @@ import Store, { AppContext } from "../contexts/Store";
 import Clients from "../components/Clients";
 import Header from "../components/Header";
 import Search from "../components/Search";
+import ClientsHeader from "../components/ClientsHeader";
+import LoadMore from "../components/LoadMore";
 
 function Dashboard () {
 
@@ -14,8 +16,10 @@ function Dashboard () {
             <main>
                 <Search/>
                 <section>
+                    <ClientsHeader/>
                     <Clients />
                 </section>
+                <LoadMore/>
             </main>
         </div>
     )
