@@ -1,12 +1,13 @@
 import React  from "react";
+import load from "../imgs/load.png"
 
 export default function LoadMore(){
     return(
         <div>
-            <button>
-                <img src="" alt="" />
+            <a>
+                <img src={load} alt="" />
                 LoadMore
-            </button>
+            </a>
         </div>
     )
 }
