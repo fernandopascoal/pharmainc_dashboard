@@ -9,7 +9,7 @@ import LoadMore from "../components/LoadMore";
 function Dashboard () {
 
     return(
-        <div>
+        <div >
             <header>
                 <Header/>
             </header>

@@ -6,7 +6,7 @@ import Store from './contexts/Store';
 function App() {
   return (
     <Store>
-      <div className="App">
+      <div className="App  bg-light">
         <Dashboard/>
       </div>
     </Store>

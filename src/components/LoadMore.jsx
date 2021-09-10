@@ -4,10 +4,10 @@ import load from "../imgs/load.png"
 export default function LoadMore(){
     return(
         <div>
-            <a>
-                <img src={load} alt="" />
+            <button className="btn btn-outline-primary">
+                <img src={load} alt="" className="me-2" />
                 LoadMore
-            </a>
+            </button>
         </div>
     )
 }
