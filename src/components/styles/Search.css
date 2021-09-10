@@ -1,0 +1,23 @@
+.search{
+    display: flex;
+}
+
+#input{
+    width: 700px;
+    margin: 20px auto;
+    height: 60px;
+}
+
+#input input{
+    border: none;
+    width: 90%;
+    margin: 0;
+    height: 99%;
+    outline: none;
+
+    font-size: 1.5em;
+}
+
+#input img {
+    margin: 0;
+}

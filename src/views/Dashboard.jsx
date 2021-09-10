@@ -13,7 +13,7 @@ function Dashboard () {
             <header>
                 <Header/>
             </header>
-            <main>
+            <main className="mt-5 pt-3">
                 <Search/>
                 <section>
                     <ClientsHeader/>
