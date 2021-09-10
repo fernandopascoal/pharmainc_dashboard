@@ -1,0 +1,30 @@
+#clientsContent{
+    width: 70%;
+    font-size: 1.3em;
+    height: 50px;
+}
+
+#clientName{
+    width: 40%;
+    height: 50px;
+    
+}
+
+#clientGender{
+    width: 20%;
+    height: 50px;
+}
+
+#clientBirth{
+    width: 20%;
+    height: 50px;
+}
+
+#buttonContainer{
+    width: 20%;
+    height: 50px;
+}
+
+#moreDatails {
+    height: 40px;
+}
