@@ -8,7 +8,7 @@ export default function Header() {
             <div className="d-flex  align-items-center">
                 <img src={pharm} alt="" className="me-2"/>
                 <div>
-                <p className="d-flex m-0 fw-bold">PharmaInc.</p>
+                <p className="d-flex m-0 fw-bold fs-3">PharmaInc.</p>
                 </div>
             </div>
             <div className="d-flex  align-items-center">

@@ -35,7 +35,7 @@ export default function Clients() {
                     <p className="border border-secundary d-flex justify-content-center align-items-center" id="clientGender">{client.gender} </p>
                     <p  className="border border-secundary d-flex justify-content-center align-items-center" id="clientBirth">{nasc}</p>
                     <div className="border border-secundary d-flex align-items-center justify-content-center" id="buttonContainer" >
-                        <button className="btn btn-info" id="moreDatails">More details</button>
+                        <button className="btn btn-outline-info" id="moreDatails">More details</button>
                     </div>
                     
                 </div>
