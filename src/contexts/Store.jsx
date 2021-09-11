@@ -6,9 +6,10 @@ export const AppContext = createContext()
 function Store(props) {
     const [clients, setClients] = useState([])
     const [showModal, setShowModal] = useState(false)
+    const [modalContent, setModalContent] = useState([])
 
     return (
-        <AppContext.Provider value={{clients, setClients, showModal, setShowModal}}>
+        <AppContext.Provider value={{clients, setClients, showModal, setShowModal, modalContent, setModalContent}}>
             {props.children}
         </AppContext.Provider>
     )

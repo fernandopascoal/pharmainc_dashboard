@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import Store, { AppContext } from "../contexts/Store";
+import React, { useContext, useEffect} from "react";
+import { AppContext } from "../contexts/Store";
 import Clients from "../components/Clients";
 import Header from "../components/Header";
 import Search from "../components/Search";
@@ -9,23 +9,23 @@ import Modal from "./Modal";
 
 function Dashboard () {
     const {showModal, setShowModal} = useContext(AppContext)
+    const {clients, setClients} = useContext(AppContext)
+
 
     return(
         <div >
-            <header>
+           <header>
                 <Header/>
             </header>
             <main className="mt-5 pt-3">
                 <Search/>
-                <section>
-                    <ClientsHeader/>
-                    <Clients />
-                </section>
+            <section>
+                <ClientsHeader/>
+                <Clients />
+            </section>
                 <LoadMore/>
             </main>
-            <div>
-                {showModal ? <Modal/> : null}
-            </div>
+            {showModal ? <Modal/> : null }
         </div>
     )
 }

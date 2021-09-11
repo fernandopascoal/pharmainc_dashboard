@@ -3,14 +3,18 @@ import Dashboard from './views/Dashboard';
 import Store from './contexts/Store';
 
 
+
 function App() {
 
   return (
-    <Store>
-      <div className="App  bg-light">
-        <Dashboard/>
-      </div>
-    </Store>
+      <Store>
+          <div className="App  bg-light">
+                <Dashboard/>
+          </div>
+      </Store>
+    
+
+   
   );
 }
 
