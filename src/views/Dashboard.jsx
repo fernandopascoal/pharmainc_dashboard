@@ -5,8 +5,10 @@ import Header from "../components/Header";
 import Search from "../components/Search";
 import ClientsHeader from "../components/ClientsHeader";
 import LoadMore from "../components/LoadMore";
+import Modal from "./Modal";
 
 function Dashboard () {
+    const {showModal, setShowModal} = useContext(AppContext)
 
     return(
         <div >
@@ -21,6 +23,9 @@ function Dashboard () {
                 </section>
                 <LoadMore/>
             </main>
+            <div>
+                {showModal ? <Modal/> : null}
+            </div>
         </div>
     )
 }

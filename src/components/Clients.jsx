@@ -7,6 +7,7 @@ import "../components/styles/Clients.css"
 export default function Clients() {
    
     const {clients, setClients} = useContext(AppContext)
+    const {showModal, setShowModal} = useContext(AppContext)
 
     const loadClients = async function (){
         const response = await fetch("https://randomuser.me/api/?page=1&results=50&seed=abc")
@@ -25,7 +26,8 @@ export default function Clients() {
 
         let name = `${client.name.first} ${client.name.last}` 
         let birth = new Date(client.dob.date)
-        const nasc = `${birth.getMonth()}/${birth.getDate()}/${birth.getFullYear()}`
+        let mouth = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][birth.getMonth()];
+        const nasc = `${birth.getDate()}/${mouth}/${birth.getFullYear()}`
         const id = `${client.id.name}${client.id.value}${client.cell}`
     
        return (
@@ -35,7 +37,7 @@ export default function Clients() {
                     <p className="border border-secundary d-flex justify-content-center align-items-center" id="clientGender">{client.gender} </p>
                     <p  className="border border-secundary d-flex justify-content-center align-items-center" id="clientBirth">{nasc}</p>
                     <div className="border border-secundary d-flex align-items-center justify-content-center" id="buttonContainer" >
-                        <button className="btn btn-outline-info" id="moreDatails">More details</button>
+                        <button className="btn btn-outline-info" id="moreDatails" onClick={() => setShowModal(true)}>More details</button>
                     </div>
                     
                 </div>
