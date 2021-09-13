@@ -11,6 +11,7 @@ export default function ClientsHeader() {
 
     const newClients = [...clients]
 
+
     let orderList = []
 
     async function alphabetical() {

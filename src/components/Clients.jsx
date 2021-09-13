@@ -1,27 +1,22 @@
 import React, {useContext, useEffect} from "react"
 import { AppContext } from "../contexts/Store"
 import "../components/styles/Clients.css"
-import { Link } from "react-router-dom"
+import { useState } from "react/cjs/react.development"
 
 
 
 export default function Clients() {
-   
+
+    const [newClients, setNewClients] = useState([])
     const {clients, setClients} = useContext(AppContext)
     const {showModal, setShowModal} = useContext(AppContext)
     const {modalContent, setModalContent} = useContext(AppContext)
 
-    const loadClients = async function (){
-        const response = await fetch("https://randomuser.me/api/?page=1&results=50&seed=abc")
-        const result = await response.json();   
-        setClients(result.results)
-    }
-
     useEffect(() => {
-        loadClients()
-    }, [])
+        setNewClients([...clients])
+    },[clients])
 
-    const listClients = clients.map((client) => {
+    const listClients = newClients.map((client) => {
 
         let name = `${client.name.first} ${client.name.last}` 
         let birth = new Date(client.dob.date)
@@ -47,7 +42,7 @@ export default function Clients() {
                     <p className="border border-secundary d-flex justify-content-center align-items-center" id="clientGender">{client.gender} </p>
                     <p  className="border border-secundary d-flex justify-content-center align-items-center" id="clientBirth">{nasc}</p>
                     <div className="border border-secundary d-flex align-items-center justify-content-center" id="buttonContainer" >
-                        <button className="btn btn-sm btn-outline-info" id="moreDetails" onClick={() => modalDetails(id)}>More details</button>
+                        <button className="btn btn-sm btn-outline-info" id="moreDetails" onClick={() => modalDetails()}>More details</button>
                     </div>
                     
                 </div>

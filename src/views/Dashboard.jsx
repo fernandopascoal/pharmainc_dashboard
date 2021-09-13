@@ -9,7 +9,6 @@ import Modal from "./Modal";
 
 function Dashboard () {
     const {showModal, setShowModal} = useContext(AppContext)
-    const {clients, setClients} = useContext(AppContext)
 
 
     return(
@@ -19,11 +18,11 @@ function Dashboard () {
             </header>
             <main className="mt-5 pt-3">
                 <Search/>
-            <section>
-                <ClientsHeader/>
-                <Clients />
-            </section>
-                <LoadMore/>
+                <section>
+                    <ClientsHeader/>
+                    <Clients />
+                </section>
+                    <LoadMore/>
             </main>
             {showModal ? <Modal/> : null }
         </div>
