@@ -21,3 +21,6 @@ instale as dependencias com:
 Rode o projeto com:
 
 `$npm start`
+
+
+###### Projeto Finalizado ######
