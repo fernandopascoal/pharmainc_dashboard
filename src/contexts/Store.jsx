@@ -10,7 +10,7 @@ function Store(props) {
     const [result, setResult] = useState([])
 
     const loadClients = async function (){
-        const response = await fetch("https://randomuser.me/api/?page=1&results=50&seed=abc")
+        const response = await fetch("https://randomuser.me/api/?results=50&seed=abc")
         const result = await response.json();   
         setClients(result.results)
         setResult(result.results)

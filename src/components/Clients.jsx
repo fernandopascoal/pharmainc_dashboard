@@ -11,9 +11,9 @@ function Clients(props) {
    let location=useLocation()
 
     const [newClients, setNewClients] = useState([])
-    const {result, SetrResult} = useContext(AppContext)
+    const {result} = useContext(AppContext)
     const {showModal, setShowModal} = useContext(AppContext)
-    const {modalContent, setModalContent} = useContext(AppContext)
+    const {setModalContent} = useContext(AppContext)
 
     useEffect(() => {
         setNewClients([...result])
@@ -38,11 +38,10 @@ function Clients(props) {
         let birth = new Date(client.dob.date)
         let mouth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ouctober", "November", "Dezember"][birth.getMonth()];
         const nasc = `${birth.getDate()} ${mouth} ${birth.getFullYear()}`
-        const id = `${client.cell}`
+        const id = `${client.id.value}${client.cell}`
 
         if(props.id === id) {
             modalDetails();
-            console.log(props.id)
         } 
 
        

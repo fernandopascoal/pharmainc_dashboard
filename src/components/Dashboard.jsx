@@ -11,13 +11,13 @@ import {AppContext} from "../contexts/Store"
 function Dashboard (props) {
 
     const {id} = useParams()
-    const {showModal, setShowModal} = useContext(AppContext)
+    const {setShowModal} = useContext(AppContext)
 
     useEffect(() => {
         if(!id) {
             setShowModal(false)
         }
-    }, [])
+    }, [id, setShowModal])
 
     return(
             <div >

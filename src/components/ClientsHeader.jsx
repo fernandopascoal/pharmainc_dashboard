@@ -71,8 +71,7 @@ export default function ClientsHeader() {
                 </div>
                 <div className="d-flex flex-column" id="gender">
                     <div className="border border-secundary d-flex justify-content-center align-items-center" >
-                        <span>Gender</span>
-                        <a className="ms-3" id="genderButton" onClick={() => showListGender()}>&or;</a>
+                        <span className="ms-3" id="genderButton" onClick={() => showListGender()}>Gender &or;</span>
                     </div>
 
                     { showGender ? 

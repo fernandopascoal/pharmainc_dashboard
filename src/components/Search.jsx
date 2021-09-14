@@ -6,12 +6,11 @@ import {AppContext} from "../contexts/Store"
 
 export default function Search(){
 
-    const {clients, setClients} = useContext(AppContext)
+    const {clients} = useContext(AppContext)
     const [search, setSearch] = useState()
-    const {result, setResult} = useContext(AppContext)
+    const { setResult} = useContext(AppContext)
 
     const searchClient = [...clients]
-    const newResult = [...result]
 
     
 

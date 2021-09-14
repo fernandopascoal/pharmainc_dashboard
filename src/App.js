@@ -1,6 +1,6 @@
 import './App.css';
 import Store from './contexts/Store';
-import { BrowserRouter as Router, Route} from "react-router-dom" ; 
+import { BrowserRouter as Router} from "react-router-dom" ; 
 import React from 'react';
 import Routes from './routes';
 
