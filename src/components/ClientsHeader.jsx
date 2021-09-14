@@ -70,7 +70,7 @@ export default function ClientsHeader() {
                     <img src={sort} alt="" onClick={alphabetical} />
                 </div>
                 <div className="d-flex flex-column" id="gender">
-                    <div class="border border-secundary d-flex justify-content-center align-items-center" >
+                    <div className="border border-secundary d-flex justify-content-center align-items-center" >
                         <span>Gender</span>
                         <a className="ms-3" id="genderButton" onClick={() => showListGender()}>&or;</a>
                     </div>

@@ -5,13 +5,15 @@ export const AppContext = createContext()
 
 function Store(props) {
     const [clients, setClients] = useState([])
-    const [showModal, setShowModal] = useState(false)
     const [modalContent, setModalContent] = useState([])
+    const [showModal, setShowModal] = useState(false)
+    const [result, setResult] = useState([])
 
     const loadClients = async function (){
         const response = await fetch("https://randomuser.me/api/?page=1&results=50&seed=abc")
         const result = await response.json();   
         setClients(result.results)
+        setResult(result.results)
     }
 
     useEffect(() => {
@@ -20,7 +22,7 @@ function Store(props) {
     
 
     return (
-        <AppContext.Provider value={{clients, setClients, showModal, setShowModal, modalContent, setModalContent}}>
+        <AppContext.Provider value={{clients, setClients, modalContent, setModalContent, showModal, setShowModal, result, setResult}}>
             {props.children}
         </AppContext.Provider>
     )

@@ -8,23 +8,35 @@ export default function Search(){
 
     const {clients, setClients} = useContext(AppContext)
     const [search, setSearch] = useState()
+    const {result, setResult} = useContext(AppContext)
 
     const searchClient = [...clients]
+    const newResult = [...result]
+
     
 
      const clientSearch = () => {
 
         var searchList = searchClient.filter(function (client) {
-            if(client.name.first === search){
+
+            if(client.name.first === search || client.nat === search){
         
                 return client
 
-          } else if(client.nat === search) {
-            return client
+          } else if(search === "") {
+
+              return client
+
           }
         })
 
-        setClients(searchList)
+        if(search.length === 0) {
+         setResult(searchClient)
+       } else {
+        setResult(searchList)
+    }
+
+        
 }
      
 

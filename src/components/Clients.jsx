@@ -2,38 +2,51 @@ import React, {useContext, useEffect} from "react"
 import { AppContext } from "../contexts/Store"
 import "../components/styles/Clients.css"
 import { useState } from "react/cjs/react.development"
+import { Link, withRouter, useLocation } from "react-router-dom"
 
 
 
-export default function Clients() {
+function Clients(props) {
+
+   let location=useLocation()
 
     const [newClients, setNewClients] = useState([])
-    const {clients, setClients} = useContext(AppContext)
+    const {result, SetrResult} = useContext(AppContext)
     const {showModal, setShowModal} = useContext(AppContext)
     const {modalContent, setModalContent} = useContext(AppContext)
 
     useEffect(() => {
-        setNewClients([...clients])
-    },[clients])
+        setNewClients([...result])
+    },[result])
+        
 
     const listClients = newClients.map((client) => {
 
-        let name = `${client.name.first} ${client.name.last}` 
-        let birth = new Date(client.dob.date)
-        let mouth = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][birth.getMonth()];
-        const nasc = `${birth.getDate()}/${mouth}/${birth.getFullYear()}`
-        const id = `${client.id.name}${client.id.value}${client.cell}`
+        async function modalDetails(id) {            
 
-        const personModal = `/modal/${id}`
-        
-
-        async function modalDetails(id) {
-            
-            setShowModal(true);
-            setModalContent([client])
-    
+            if(!showModal){
+                setModalContent([client])
+                setShowModal(true)
+            }
             return
         }
+
+        
+
+
+        let name = `${client.name.first} ${client.name.last}` 
+        let birth = new Date(client.dob.date)
+        let mouth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ouctober", "November", "Dezember"][birth.getMonth()];
+        const nasc = `${birth.getDate()} ${mouth} ${birth.getFullYear()}`
+        const id = `${client.cell}`
+
+        if(props.id === id) {
+            modalDetails();
+            console.log(props.id)
+        } 
+
+       
+
     
        return (
             <div className="d-flex justify-content-center" key={id}>
@@ -42,7 +55,10 @@ export default function Clients() {
                     <p className="border border-secundary d-flex justify-content-center align-items-center" id="clientGender">{client.gender} </p>
                     <p  className="border border-secundary d-flex justify-content-center align-items-center" id="clientBirth">{nasc}</p>
                     <div className="border border-secundary d-flex align-items-center justify-content-center" id="buttonContainer" >
-                        <button className="btn btn-sm btn-outline-info" id="moreDetails" onClick={() => modalDetails()}>More details</button>
+                        <Link className="btn btn-sm btn-outline-info" id="moreDetails" onClick={() => modalDetails()} to={{
+                                                                                                                            pathname: `/modal/${id}`,
+                                                                                                                            state: { background: location }
+                                                                                                                        }}>More details</Link>
                     </div>
                     
                 </div>
@@ -53,12 +69,12 @@ export default function Clients() {
 
     return (
         <div>
-            <p>{listClients}</p>
+            {listClients}
         </div>
     )
-
-
 }
+
+export default withRouter(Clients)
 
 
 
